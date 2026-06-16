@@ -1,0 +1,1 @@
+{"species":"Alternaria panax","nodes":[{"l":"ApSulP2","t":"g","p":1,"x":800.7,"y":799.3},{"l":"ApWD40a","t":"g","p":1,"x":0.0,"y":1600.0},{"l":"Sulfate transport","t":"p","p":2,"x":1600.0,"y":0.0}],"edges":[{"s":0,"t":2,"r":"member_of","c":"high","n":1,"e":1},{"s":1,"t":0,"r":"positively_regulates","c":"medium","n":1,"e":1}]}

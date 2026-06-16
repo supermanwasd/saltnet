@@ -1,0 +1,1 @@
+{"species":"Malus×domestica","nodes":[{"l":"MdABRE1A","t":"g","p":1,"x":1600.0,"y":1600.0},{"l":"MdMYB46","t":"g","p":1,"x":800.7,"y":800.7},{"l":"Secondary cell wall biosynthesis","t":"p","p":7,"x":0.0,"y":0.0}],"edges":[{"s":1,"t":2,"r":"activates_pathway","c":"high","n":1,"e":1},{"s":1,"t":0,"r":"transcribes_target","c":"high","n":1,"e":1}]}

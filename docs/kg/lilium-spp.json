@@ -1,0 +1,1 @@
+{"species":"Lilium spp.","nodes":[{"l":"LlHSFA3A","t":"g","p":1,"x":1600.0,"y":1600.0},{"l":"LlHSFA3B","t":"g","p":1,"x":0.0,"y":1137.1},{"l":"Heat shock response","t":"p","p":128,"x":1205.9,"y":0.0}],"edges":[{"s":0,"t":2,"r":"member_of","c":"medium","n":1,"e":1},{"s":1,"t":2,"r":"member_of","c":"medium","n":1,"e":1},{"s":1,"t":0,"r":"negatively_regulates","c":"high","n":1}]}

@@ -1,0 +1,1 @@
+{"species":"Solanum cheesmaniae / Solanum lycopersicum","nodes":[{"l":"ScHKT1;1","t":"g","p":1,"x":1600.0,"y":1600.0},{"l":"ScHKT1;2","t":"g","p":1,"x":0.0,"y":0.0},{"l":"Ion homeostasis","t":"p","p":1131,"x":800.7,"y":800.7}],"edges":[{"s":1,"t":2,"r":"member_of","c":"high","n":1,"e":1},{"s":0,"t":2,"r":"member_of","c":"medium","n":1,"e":1}]}

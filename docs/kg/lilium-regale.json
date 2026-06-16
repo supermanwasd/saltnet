@@ -1,0 +1,1 @@
+{"species":"Lilium regale","nodes":[{"l":"LreEF1A1","t":"g","p":1,"x":1600.0,"y":1600.0},{"l":"LreEF1A4","t":"g","p":1,"x":800.7,"y":800.7},{"l":"Photosynthesis","t":"p","p":274,"x":0.0,"y":0.0}],"edges":[{"s":1,"t":2,"r":"activates_pathway","c":"medium","n":1,"e":1},{"s":1,"t":0,"r":"is_paralog_of","c":"medium","n":1,"e":1}]}

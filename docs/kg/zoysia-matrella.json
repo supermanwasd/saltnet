@@ -1,0 +1,1 @@
+{"species":"Zoysia matrella","nodes":[{"l":"ZmGnTL","t":"g","p":1,"x":800.7,"y":799.3},{"l":"Ion homeostasis","t":"p","p":1131,"x":0.0,"y":1600.0},{"l":"Reactive oxygen species (ROS) signalling","t":"p","p":1509,"x":1600.0,"y":0.0}],"edges":[{"s":0,"t":1,"r":"activates_pathway","c":"medium","n":1},{"s":0,"t":2,"r":"activates_pathway","c":"medium","n":1,"e":1}]}

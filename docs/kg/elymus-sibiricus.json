@@ -1,0 +1,1 @@
+{"species":"Elymus sibiricus","nodes":[{"l":"EsABI5","t":"g","p":1,"x":800.7,"y":799.3},{"l":"ABA signalling","t":"p","p":1566,"x":0.0,"y":1600.0},{"l":"MAPK cascade","t":"p","p":160,"x":1600.0,"y":0.0}],"edges":[{"s":0,"t":1,"r":"member_of","c":"high","n":1},{"s":0,"t":2,"r":"member_of","c":"medium","n":1}]}

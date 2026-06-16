@@ -1,0 +1,1 @@
+{"species":"Aeromonas hydrophila","nodes":[{"l":"AHA_2114","t":"g","p":1,"x":1600.0,"y":1600.0},{"l":"AHA_3488","t":"g","p":1,"x":0.0,"y":0.0},{"l":"AHA_4052","t":"g","p":1,"x":800.7,"y":800.7}],"edges":[{"s":2,"t":0,"r":"transcribes_target","c":"high","n":1,"e":1},{"s":2,"t":1,"r":"transcribes_target","c":"high","n":1,"e":1}]}

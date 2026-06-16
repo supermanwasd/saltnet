@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>SaltNet — Plant Salt-Tolerance Gene Database</title>
+<meta name="description" content="A curated, literature-mined database of plant salt-tolerance genes across species, with functional, mechanistic and evidence-level annotation." />
+<link rel="stylesheet" href="vendor/jsvectormap.min.css" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <h1>🌱 SaltNet <span style="font-weight:400;font-size:15px;opacity:.9">· Plant Salt-Tolerance Gene Database</span></h1>
+    <div class="sub">
+      A curated, literature-mined catalogue of plant <strong>salt-tolerance genes</strong> across species —
+      with alias clustering, PubMed support, evidence strength, functional category, transport substrate,
+      subcellular localization, and mechanistic role. Click any row for full details and an interactive
+      co-citation network.
+    </div>
+    <div class="links">
+      <a href="https://github.com/supermanwasd/saltnet" target="_blank" rel="noopener">⌥ GitHub repository</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <div id="loader">
+    <div class="spinner"></div>
+    <p>Loading database (≈10&nbsp;MB, one-time)…</p>
+  </div>
+
+  <div id="app" class="hidden">
+    <nav class="viewnav">
+      <button class="vtab active" data-view="dashboard">📊 Dashboard</button>
+      <button class="vtab" data-view="browse">🔍 Browse &amp; search</button>
+      <button class="vtab" data-view="kg">🕸️ Knowledge graph</button>
+    </nav>
+
+    <!-- ===== Dashboard view ===== -->
+    <section id="view-dashboard">
+      <section id="stats" class="stats"></section>
+      <div class="charts">
+        <div class="chartcard span2"><h3>Most-studied genes <span class="csub">top 15 by # papers · click a gene to open it</span></h3><div class="cwrap tall"><canvas id="chart-topgenes"></canvas></div></div>
+        <div class="chartcard"><h3>Species <span class="csub">share of records</span></h3><div class="cwrap"><canvas id="chart-species"></canvas></div></div>
+        <div class="chartcard"><h3>Functional category</h3><div class="cwrap"><canvas id="chart-cat"></canvas></div></div>
+        <div class="chartcard"><h3>Inferred gene role</h3><div class="cwrap"><canvas id="chart-role"></canvas></div></div>
+        <div class="chartcard"><h3>Evidence strength</h3><div class="cwrap"><canvas id="chart-evidence"></canvas></div></div>
+        <div class="chartcard"><h3>Mechanistic role</h3><div class="cwrap"><canvas id="chart-mech"></canvas></div></div>
+        <div class="chartcard"><h3>Transport substrate</h3><div class="cwrap"><canvas id="chart-substrate"></canvas></div></div>
+      </div>
+    </section>
+
+    <!-- ===== Browse / search view ===== -->
+    <section id="view-browse" class="hidden">
+      <section class="panel">
+        <h2>Search &amp; filter</h2>
+        <div class="body">
+          <div class="searchrow">
+            <input id="search" type="text" placeholder="Search gene name, alias, or species (e.g. SOS1, HKT, Triticum)…" />
+            <button id="reset" class="btn">Reset</button>
+          </div>
+          <div id="filters" class="filters"></div>
+        </div>
+      </section>
+
+      <section class="panel">
+        <h2>Results</h2>
+        <div class="tablewrap">
+          <table id="table" class="results"></table>
+        </div>
+        <div class="tablefoot">
+          <div id="count"></div>
+          <div id="pager" class="pager"></div>
+        </div>
+      </section>
+    </section>
+
+    <!-- ===== Knowledge graph view ===== -->
+    <section id="view-kg" class="hidden">
+      <div class="panel">
+        <h2>Species knowledge graph</h2>
+        <div class="body">
+          <div class="kg-toolbar">
+            <div class="field"><label>Species</label><select id="kg-species"></select></div>
+            <div class="field"><label>Focus gene</label><select id="kg-gene"></select></div>
+            <div class="field"><label>Pathway</label><select id="kg-pathway"></select></div>
+            <div class="field"><label>Confidence</label>
+              <select id="kg-conf">
+                <option value="">All</option>
+                <option value="high">High only</option>
+                <option value="high,medium">High + medium</option>
+              </select>
+            </div>
+            <label class="kg-check"><input type="checkbox" id="kg-pathways" checked> Show pathways</label>
+            <button class="btn" id="kg-fit">Reset view</button>
+          </div>
+          <div id="kg-legend" class="kg-legend"></div>
+          <div id="kg-wrap">
+            <canvas id="kg-canvas"></canvas>
+            <div id="kg-tip" class="kg-tip hidden"></div>
+            <div id="kg-stat" class="kg-stat"></div>
+          </div>
+          <p class="graph-hint">Scroll to zoom · drag to pan · click a gene for its record · click an edge for the paper evidence · hover for names.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+</main>
+
+<!-- detail modal -->
+<div id="modal-bg" class="modal-bg">
+  <div class="modal">
+    <div class="mhead">
+      <h3 id="modal-title"></h3>
+      <button class="close" aria-label="Close">×</button>
+    </div>
+    <div class="mtabs">
+      <button class="mtab active" data-tab="details">Details</button>
+      <button class="mtab" data-tab="papers">By paper</button>
+      <button class="mtab" data-tab="graph">Co-citation graph</button>
+    </div>
+    <div class="mbody">
+      <div id="tab-details"></div>
+      <div id="tab-papers" class="hidden"></div>
+      <div id="tab-graph" class="hidden"></div>
+    </div>
+  </div>
+</div>
+
+<!-- KG edge-evidence modal -->
+<div id="kg-ev" class="modal-bg">
+  <div class="modal">
+    <div class="mhead"><h3 id="kg-ev-title"></h3><button class="close" id="kg-ev-close" aria-label="Close">×</button></div>
+    <div class="mbody" id="kg-ev-body"></div>
+  </div>
+</div>
+
+<section class="visitors">
+  <div class="wrap">
+    <h2 class="vis-title">🌍 Where our visitors are</h2>
+    <div id="visitor-map"></div>
+    <p id="vis-caption" class="vis-caption">Locating you on the map…</p>
+  </div>
+</section>
+
+<footer class="site">
+  Data and tool are released for academic use. If you use this resource, please cite the accompanying paper.<br>
+  Built as a static <code>sql.js</code> + SQLite app — runs entirely in your browser. The visitor map uses
+  geojs.io (geolocation) and getpantry.cloud (visit counts); no tracking cookies.
+</footer>
+
+<script src="vendor/sql-wasm.js"></script>
+<script src="vendor/chart.umd.min.js"></script>
+<script src="vendor/jsvectormap.min.js"></script>
+<script src="vendor/world.js"></script>
+<script src="app.js"></script>
+<script src="kg.js"></script>
+</body>
+</html>

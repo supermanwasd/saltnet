@@ -1,0 +1,1 @@
+{"species":"Halomonas sp. strain Y2","nodes":[{"l":"NhaD1","t":"g","p":1,"x":1600.0,"y":1600.0},{"l":"NhaD2","t":"g","p":1,"x":0.0,"y":1137.1},{"l":"Ion homeostasis","t":"p","p":1131,"x":1205.9,"y":0.0}],"edges":[{"s":0,"t":1,"r":"is_paralog_of","c":"high","n":1,"e":1},{"s":1,"t":2,"r":"member_of","c":"medium","n":1,"e":1},{"s":0,"t":2,"r":"member_of","c":"medium","n":1,"e":1}]}

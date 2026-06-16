@@ -1,0 +1,1 @@
+{"species":"Triticum monococcum","nodes":[{"l":"TmHKT1;4-A2","t":"g","p":5,"x":1600.0,"y":1600.0},{"l":"TmHKT1;5-A","t":"g","p":9,"x":0.0,"y":0.0},{"l":"Ion homeostasis","t":"p","p":1131,"x":800.7,"y":800.7}],"edges":[{"s":1,"t":2,"r":"member_of","c":"high","n":5},{"s":0,"t":2,"r":"member_of","c":"high","n":1},{"s":1,"t":2,"r":"activates_pathway","c":"high","n":1,"e":1}]}

@@ -1,0 +1,1 @@
+{"species":"Lilium (Oriental hybrid 'Sorbonne')","nodes":[{"l":"LoABF2","t":"g","p":1,"x":800.7,"y":799.3},{"l":"LoSWEET14","t":"g","p":1,"x":0.0,"y":1600.0},{"l":"ABA signalling","t":"p","p":1566,"x":1600.0,"y":0.0}],"edges":[{"s":0,"t":2,"r":"member_of","c":"medium","n":1,"e":1},{"s":0,"t":1,"r":"transcribes_target","c":"high","n":1,"e":1}]}

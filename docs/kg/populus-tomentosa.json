@@ -1,0 +1,1 @@
+{"species":"Populus × tomentosa","nodes":[{"l":"PtoNF-YC9","t":"g","p":1,"x":1600.0,"y":1600.0},{"l":"PtoRD26","t":"g","p":1,"x":0.0,"y":0.0},{"l":"SRMT","t":"g","p":1,"x":800.7,"y":800.7}],"edges":[{"s":0,"t":2,"r":"interacts_with","c":"high","n":1,"e":1},{"s":2,"t":1,"r":"positively_regulates","c":"high","n":1,"e":1}]}

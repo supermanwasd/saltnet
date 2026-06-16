@@ -1,0 +1,1 @@
+{"species":"Eurotium herbariorum","nodes":[{"l":"EhHOG","t":"g","p":1,"x":800.7,"y":799.3},{"l":"HOG pathway","t":"p","p":69,"x":0.0,"y":1600.0},{"l":"High-osmolarity glycerol (HOG) pathway","t":"p","p":1,"x":1600.0,"y":0.0}],"edges":[{"s":0,"t":1,"r":"activates_pathway","c":"medium","n":1,"e":1},{"s":0,"t":2,"r":"member_of","c":"high","n":1,"e":1}]}

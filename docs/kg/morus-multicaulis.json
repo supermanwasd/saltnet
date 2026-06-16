@@ -1,0 +1,1 @@
+{"species":"Morus multicaulis","nodes":[{"l":"MuGABA-T","t":"g","p":1,"x":800.7,"y":799.3},{"l":"GABA shunt","t":"p","p":7,"x":0.0,"y":1600.0},{"l":"GABA shunt pathway","t":"p","p":4,"x":1600.0,"y":0.0}],"edges":[{"s":0,"t":2,"r":"member_of","c":"high","n":1,"e":1},{"s":0,"t":1,"r":"member_of","c":"high","n":1,"e":1}]}

@@ -1,0 +1,1 @@
+{"species":"Diospyros oleifera","nodes":[{"l":"DoCBL1","t":"g","p":1,"x":1600.0,"y":1600.0},{"l":"DoCIPK6","t":"g","p":1,"x":0.0,"y":1137.1},{"l":"Calcium signalling","t":"p","p":232,"x":1205.9,"y":0.0}],"edges":[{"s":0,"t":1,"r":"interacts_with","c":"high","n":1,"e":1},{"s":0,"t":2,"r":"member_of","c":"medium","n":1},{"s":1,"t":2,"r":"member_of","c":"medium","n":1}]}
