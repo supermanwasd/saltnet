@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>SaltNet — Plant Salt-Tolerance Gene Database</title>
 <meta name="description" content="A curated, literature-mined database of plant salt-tolerance genes across species, with functional, mechanistic and evidence-level annotation." />
+<link rel="icon" type="image/svg+xml" href="favicon.svg" />
 <link rel="stylesheet" href="vendor/jsvectormap.min.css" />
 <link rel="stylesheet" href="styles.css" />
 </head>
@@ -36,6 +37,7 @@
       <button class="vtab active" data-view="dashboard">📊 Dashboard</button>
       <button class="vtab" data-view="browse">🔍 Browse &amp; search</button>
       <button class="vtab" data-view="kg">🕸️ Knowledge graph</button>
+      <button class="vtab" data-view="download">⬇️ Download data</button>
     </nav>
 
     <!-- ===== Dashboard view ===== -->
@@ -103,6 +105,39 @@
             <div id="kg-stat" class="kg-stat"></div>
           </div>
           <p class="graph-hint">Scroll to zoom · drag to pan · click a gene for its record · click an edge for the paper evidence · hover for names.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Download data view ===== -->
+    <section id="view-download" class="hidden">
+      <div class="panel">
+        <h2>Download the data</h2>
+        <div class="body">
+          <p class="dl-intro">All of SaltNet's underlying data is openly available in the
+            GitHub repository. Use the links below to download individual files, or get the
+            whole dataset at once.</p>
+          <div class="dl-grid">
+            <a class="dl-card" href="https://github.com/supermanwasd/saltnet/raw/main/docs/data/extracted_genes_v5_grand_final.csv">
+              <div class="dl-name">Full gene table (CSV) ⬇</div>
+              <div class="dl-desc">One row per gene × species with all 26 annotated fields.</div></a>
+            <a class="dl-card" href="https://github.com/supermanwasd/saltnet/raw/main/docs/salt_genes.db">
+              <div class="dl-name">SQLite database (.db) ⬇</div>
+              <div class="dl-desc">Genes + child tables (PMIDs, categories, tissues, substrates) — queryable with SQL.</div></a>
+            <a class="dl-card" href="https://github.com/supermanwasd/saltnet/raw/main/docs/gene_papers.json">
+              <div class="dl-name">Per-paper evidence (JSON) ⬇</div>
+              <div class="dl-desc">Each paper's experimental context (background, stress, method…) per gene.</div></a>
+            <a class="dl-card" href="https://github.com/supermanwasd/saltnet/raw/main/docs/tcdb_families.json">
+              <div class="dl-name">TCDB transporter annotation (JSON) ⬇</div>
+              <div class="dl-desc">TCDB family / TC class and substrate-consistency per transporter.</div></a>
+            <a class="dl-card" href="https://github.com/supermanwasd/saltnet/tree/main/docs/kg" target="_blank" rel="noopener">
+              <div class="dl-name">Knowledge graph (folder) ↗</div>
+              <div class="dl-desc">Per-species nodes, edges and per-edge paper evidence.</div></a>
+            <a class="dl-card" href="https://github.com/supermanwasd/saltnet" target="_blank" rel="noopener">
+              <div class="dl-name">Whole dataset / repository ↗</div>
+              <div class="dl-desc">Browse everything, or Code → Download ZIP, or <code>git clone</code>.</div></a>
+          </div>
+          <a class="btn primary dl-repo" href="https://github.com/supermanwasd/saltnet" target="_blank" rel="noopener">View repository on GitHub ↗</a>
         </div>
       </div>
     </section>

@@ -625,6 +625,7 @@ function showView(view) {
   $("#view-dashboard").classList.toggle("hidden", view !== "dashboard");
   $("#view-browse").classList.toggle("hidden", view !== "browse");
   $("#view-kg").classList.toggle("hidden", view !== "kg");
+  $("#view-download").classList.toggle("hidden", view !== "download");
   if (view === "kg" && typeof initKG === "function") initKG();
 }
 
