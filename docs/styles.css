@@ -179,7 +179,7 @@ dl.paper-fields dd { padding: 6px 0; margin: 0; border-top: 1px solid var(--line
 .dl-desc { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
 .dl-repo { display: inline-block; margin-top: 18px; }
 .dl-terms { margin-top: 18px; padding: 12px 14px; font-size: 12.5px; line-height: 1.5; color: var(--muted);
-  background: #fff8f2; border: 1px solid #f0ddc9; border-radius: 8px; }
+  background: var(--accent-soft); border: 1px solid var(--line); border-radius: 8px; }
 
 /* ---------- modal ---------- */
 .modal-bg { position: fixed; inset: 0; background: rgba(8,28,48,.5); display: none;
