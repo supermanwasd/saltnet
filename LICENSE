@@ -1,0 +1,38 @@
+SaltNet Academic Use License (v1.0)
+
+Copyright (c) 2026 Yunchuan Wang, King Abdullah University of Science and
+Technology (KAUST). All rights reserved.
+
+SaltNet — comprising this website, the underlying database, the knowledge graph,
+and all associated data files (collectively, the "Resource") — is made available
+solely for non-commercial academic and scientific research use, subject to the
+terms below. By accessing or using the Resource you agree to these terms.
+
+1. PERMITTED USE
+   a. You may access and use the Resource for your own academic or scientific
+      research.
+   b. You may cite the Resource and its accompanying publication in your work.
+
+2. NOT PERMITTED (without prior written permission from the copyright holder)
+   a. Copying, redistributing, republishing, mirroring, or otherwise hosting any
+      copy of the Resource or of this website, in whole or in part.
+   b. Building, deploying, or operating your own database, website, or service
+      from the Resource or its data, or using the Resource to create a derivative,
+      competing, or substitute resource.
+   c. Any commercial use of the Resource or its data.
+   d. Removing or altering attribution, or presenting the Resource or any part of
+      its data as your own work (plagiarism).
+
+3. ATTRIBUTION
+   Any use of the Resource in research must cite the source:
+   SaltNet — Plant Salt-Tolerance Gene Database. [Authors, Journal, Year, DOI — to
+   be added.]
+
+4. NO WARRANTY
+   The Resource is provided "AS IS", without warranty of any kind, express or
+   implied. The copyright holder shall not be liable for any claim, damage, or
+   other liability arising from the use of the Resource.
+
+5. PERMISSIONS
+   For any use beyond the scope of this license — including redistribution,
+   derivative resources, or commercial use — contact: yunchuan.wang@kaust.edu.sa

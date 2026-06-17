@@ -102,4 +102,8 @@ If you use SaltNet, please cite the accompanying paper. *(Add citation / DOI her
 
 ## License
 
-Data released for academic use. *(Add a license, e.g. CC BY 4.0.)*
+**SaltNet Academic Use License** (see [`LICENSE`](LICENSE)). The Resource is provided for
+**non-commercial academic and scientific research use only**. You may use the data for your
+own research and cite it; you may **not** copy, redistribute, mirror, or build your own
+database/website from it, nor present its data as your own work. For any other use, contact
+yunchuan.wang@kaust.edu.sa.
