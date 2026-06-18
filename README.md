@@ -96,6 +96,14 @@ df = pd.read_sql("SELECT * FROM genes", con)
 
 ---
 
+## Programmatic access (MCP)
+
+An AI agent can query SaltNet directly through a local
+[Model Context Protocol](https://modelcontextprotocol.io) server in
+[`mcp_server/`](mcp_server) — three tools: `search_genes`, `get_gene`, and
+`get_gene_network` (gene + per-paper evidence + knowledge graph). See
+[`mcp_server/README.md`](mcp_server/README.md) for setup.
+
 ## Citation
 
 If you use SaltNet, please cite the accompanying paper. *(Add citation / DOI here.)*
