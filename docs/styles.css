@@ -178,6 +178,18 @@ dl.paper-fields dd { padding: 6px 0; margin: 0; border-top: 1px solid var(--line
 .dl-name { font-weight: 700; color: var(--accent-dark); font-size: 14.5px; margin-bottom: 4px; }
 .dl-desc { font-size: 12.5px; color: var(--muted); line-height: 1.45; }
 .dl-repo { display: inline-block; margin-top: 18px; }
+
+/* ---------- MCP / agents ---------- */
+.mcp-tools { width: 100%; border-collapse: collapse; font-size: 13.5px; margin: 6px 0 18px; }
+.mcp-tools th, .mcp-tools td { text-align: left; padding: 8px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.mcp-tools th { background: #ecf3f9; color: var(--accent-dark); }
+.mcp-tools td code { background: var(--chip); padding: 1px 6px; border-radius: 4px; color: var(--accent-dark); }
+.mcp-h { font-size: 14px; color: var(--accent-dark); margin: 20px 0 6px; }
+.mcp-sub { font-size: 13px; color: var(--muted); margin: 10px 0 4px; }
+.mcp-note { font-size: 12.5px; color: var(--muted); margin: 0 0 8px; }
+.mcp-ex { font-size: 13.5px; color: var(--ink); margin: 4px 0 0; padding-left: 20px; line-height: 1.7; }
+pre.code { background: #0c2233; color: #d6e6f2; border-radius: 9px; padding: 13px 15px; overflow-x: auto;
+  font-size: 12.5px; line-height: 1.55; font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; margin: 0 0 6px; }
 .dl-terms { margin-top: 18px; padding: 12px 14px; font-size: 12.5px; line-height: 1.5; color: var(--muted);
   background: var(--accent-soft); border: 1px solid var(--line); border-radius: 8px; }
 

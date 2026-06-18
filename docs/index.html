@@ -38,6 +38,7 @@
       <button class="vtab" data-view="browse">🔍 Browse &amp; search</button>
       <button class="vtab" data-view="kg">🕸️ Knowledge graph</button>
       <button class="vtab" data-view="download">⬇️ Download data</button>
+      <button class="vtab" data-view="mcp">🔌 MCP / agents</button>
     </nav>
 
     <!-- ===== Dashboard view ===== -->
@@ -144,6 +145,56 @@
             you are free to use, share and adapt it for any purpose, provided you give appropriate credit and
             cite the source.
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MCP / agents view ===== -->
+    <section id="view-mcp" class="hidden">
+      <div class="panel">
+        <h2>Query SaltNet from an AI agent (MCP)</h2>
+        <div class="body">
+          <p class="dl-intro">SaltNet ships a local <a href="https://modelcontextprotocol.io" target="_blank" rel="noopener">Model Context Protocol</a>
+            server so an AI agent (Claude Desktop, Claude Code, Cline, …) can query the database directly — fully offline,
+            no backend or API key. Three tools:</p>
+
+          <table class="mcp-tools">
+            <thead><tr><th>Tool</th><th>What it returns</th></tr></thead>
+            <tbody>
+              <tr><td><code>search_genes</code></td><td>Find genes by free text and/or facets (species, functional category, transport substrate, role).</td></tr>
+              <tr><td><code>get_gene</code></td><td>One gene's full record: annotations, supporting PMIDs, per-paper experimental evidence, TCDB annotation, UniProt/NCBI sequence links.</td></tr>
+              <tr><td><code>get_gene_network</code></td><td>The gene's knowledge-graph neighbourhood: connected genes/pathways, edge relations, and the supporting paper evidence (PMID + quoted experiment).</td></tr>
+            </tbody>
+          </table>
+
+          <h3 class="mcp-h">1 · Install</h3>
+          <pre class="code">git clone https://github.com/supermanwasd/saltnet.git
+cd saltnet/mcp_server
+python -m venv .venv &amp;&amp; source .venv/bin/activate   # Windows: .venv\Scripts\Activate.ps1
+pip install -r requirements.txt</pre>
+
+          <h3 class="mcp-h">2 · Register with your agent</h3>
+          <p class="mcp-note">Use absolute paths, and point the command at the <strong>venv</strong> Python.</p>
+          <p class="mcp-sub">Claude Code:</p>
+          <pre class="code">claude mcp add saltnet -- /ABS/PATH/saltnet/mcp_server/.venv/bin/python /ABS/PATH/saltnet/mcp_server/saltnet_mcp.py</pre>
+          <p class="mcp-sub">Claude Desktop — add to <code>claude_desktop_config.json</code>:</p>
+          <pre class="code">{
+  "mcpServers": {
+    "saltnet": {
+      "command": "/ABS/PATH/saltnet/mcp_server/.venv/bin/python",
+      "args": ["/ABS/PATH/saltnet/mcp_server/saltnet_mcp.py"]
+    }
+  }
+}</pre>
+
+          <h3 class="mcp-h">3 · Ask</h3>
+          <ul class="mcp-ex">
+            <li>“Use SaltNet to find Na⁺ transporters involved in salt tolerance in wheat.”</li>
+            <li>“What does SaltNet say about SOS1 in Arabidopsis — evidence and which papers?”</li>
+            <li>“Show SOS1's regulatory network and the experiment behind each edge.”</li>
+          </ul>
+
+          <a class="btn primary dl-repo" href="https://github.com/supermanwasd/saltnet/blob/main/mcp_server/README.md" target="_blank" rel="noopener">Full setup &amp; usage tutorial on GitHub ↗</a>
         </div>
       </div>
     </section>
