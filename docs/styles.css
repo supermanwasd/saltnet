@@ -220,6 +220,9 @@ dl.paper-fields dd { padding: 6px 0; margin: 0; border-top: 1px solid var(--line
 .ext-btn { font-size: 12.5px; padding: 5px 11px; border-radius: 7px; background: var(--accent-soft);
   color: var(--accent-dark); border: 1px solid var(--line); white-space: nowrap; }
 .ext-btn:hover { background: var(--accent); color: #fff; border-color: var(--accent); text-decoration: none; }
+.seq-tag { font-size: 11px; padding: 1px 8px; border-radius: 12px; }
+.seq-tag.rev { background: #e0edfa; color: var(--accent-dark); }
+.seq-tag.un { background: var(--chip); color: var(--muted); }
 
 .tcdb-box { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 0 0 16px;
   font-size: 13px; background: #f1f7f2; border: 1px solid #d6e7d8; border-radius: 8px; padding: 8px 12px; }

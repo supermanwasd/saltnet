@@ -16,7 +16,9 @@ let state = {
   total: 0,
 };
 const charts = {};
-let tcdbFam = {};   // {gene_id: {fam, tc, exp, v}} TCDB transporter annotation
+let tcdbFam = {};     // {gene_id: {fam, tc, exp, v}} TCDB transporter annotation
+let uniprotAcc = {};  // {gene_id: {a: accession, r: reviewed}} resolved UniProt entries
+let siteStats = {};   // {min_year, max_year, ...} small dashboard stats
 
 // Facets: single-value live on `genes`; multi-value use a junction table.
 const FACETS = [
@@ -72,6 +74,8 @@ async function boot() {
     const buf = await fetchDb(DB_URL);
     db = new SQL.Database(new Uint8Array(buf));
     try { tcdbFam = await (await fetch("tcdb_families.json")).json(); } catch (_) { tcdbFam = {}; }
+    try { uniprotAcc = await (await fetch("uniprot_acc.json")).json(); } catch (_) { uniprotAcc = {}; }
+    try { siteStats = await (await fetch("stats.json")).json(); } catch (_) { siteStats = {}; }
     $("#loader").classList.add("hidden");
     $("#app").classList.remove("hidden");
     renderStats();
@@ -147,6 +151,9 @@ function renderStats() {
     [pm.toLocaleString(), "Unique PMIDs"],
     [dv.toLocaleString(), "Direct functional validation"],
   ];
+  if (siteStats.min_year && siteStats.max_year) {
+    cards.push([`${siteStats.min_year}–${siteStats.max_year}`, "Literature span (oldest–newest paper)"]);
+  }
   $("#stats").innerHTML = cards
     .map((c) => `<div class="stat"><div class="num">${c[0]}</div><div class="lab">${c[1]}</div></div>`)
     .join("");
@@ -412,19 +419,25 @@ async function renderPapers(id) {
 
 function closeModal() { $("#modal-bg").classList.remove("open"); }
 
-// "Get sequence" links to authoritative sources (we deliberately don't store sequences)
+// Sequence links — only shown when the gene resolves to a real UniProt entry.
+// All links are direct (verified to have a sequence): the UniProt entry + FASTA,
+// and NCBI Protein / NCBI Gene built from the entry's cross-references.
 function sequenceLinks(r) {
-  const g = (r.canonical_gene || "").trim();
-  const sp = (r.species || "").trim();
-  const q = encodeURIComponent(`${g} ${sp}`.trim());
-  const out = [
-    ["UniProt", `https://www.uniprot.org/uniprotkb?query=${q}`],
-    ["NCBI Protein", `https://www.ncbi.nlm.nih.gov/protein/?term=${q}`],
-    ["NCBI Gene", `https://www.ncbi.nlm.nih.gov/gene/?term=${q}`],
+  const t = uniprotAcc[String(r.gene_id)];
+  if (!t || !t.a) return "";
+  const acc = esc(t.a);
+  const links = [
+    [`UniProt ${acc} ↗`, `https://www.uniprot.org/uniprotkb/${acc}/entry`],
+    [`FASTA ⬇`, `https://rest.uniprot.org/uniprotkb/${acc}.fasta`],
   ];
-  return `<div class="ext-links"><span class="ext-label">Get sequence</span>` +
-    out.map(([t, u]) => `<a class="ext-btn" href="${u}" target="_blank" rel="noopener">${t} ↗</a>`).join("") +
-    `</div>`;
+  if (t.prot) links.push([`NCBI Protein ↗`, `https://www.ncbi.nlm.nih.gov/protein/${esc(t.prot)}`]);
+  if (t.gene) links.push([`NCBI Gene ↗`, `https://www.ncbi.nlm.nih.gov/gene/${esc(t.gene)}`]);
+  const badge = t.r
+    ? '<span class="seq-tag rev">Swiss-Prot</span>'
+    : '<span class="seq-tag un">TrEMBL</span>';
+  return `<div class="ext-links"><span class="ext-label">Sequence</span>` +
+    links.map(([txt, u]) => `<a class="ext-btn" href="${u}" target="_blank" rel="noopener">${txt}</a>`).join("") +
+    ` ${badge}</div>`;
 }
 
 // TCDB transporter-family annotation (shown for transporters only)
