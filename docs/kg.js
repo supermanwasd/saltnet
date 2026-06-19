@@ -48,11 +48,14 @@
       return;
     }
     const sel = document.getElementById("kg-species");
-    sel.innerHTML = index
+    const defaultSlug = index.length ? index[0].slug : null;   // index is count-sorted: [0] = largest
+    const byName = [...index].sort((a, b) =>
+      a.species.toLowerCase() < b.species.toLowerCase() ? -1 : 1);   // dropdown alphabetical
+    sel.innerHTML = byName
       .map((d) => `<option value="${d.slug}">${esc(d.species)} — ${d.genes} genes, ${d.edges} edges</option>`)
       .join("");
     sel.addEventListener("change", () => loadSpecies(sel.value));
-    if (index.length) loadSpecies(index[0].slug);
+    if (defaultSlug) { sel.value = defaultSlug; loadSpecies(defaultSlug); }
   }
   window.initKG = initKG;
 
