@@ -167,8 +167,10 @@ function buildFacets() {
       const [tbl, vc] = f.junction;
       opts = rows(`SELECT "${vc}" v, COUNT(*) n FROM ${tbl} GROUP BY "${vc}" ORDER BY n DESC`);
     } else {
+      // species is sorted alphabetically; other single-value facets by count
+      const order = f.key === "species" ? "v COLLATE NOCASE ASC" : "n DESC";
       opts = rows(
-        `SELECT ${f.col} v, COUNT(*) n FROM genes WHERE ${f.col} IS NOT NULL AND ${f.col}<>'' GROUP BY ${f.col} ORDER BY n DESC`
+        `SELECT ${f.col} v, COUNT(*) n FROM genes WHERE ${f.col} IS NOT NULL AND ${f.col}<>'' GROUP BY ${f.col} ORDER BY ${order}`
       );
     }
     const optHtml = opts
