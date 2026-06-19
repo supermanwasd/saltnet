@@ -100,6 +100,19 @@
             <button class="btn" id="kg-fit">Reset view</button>
           </div>
           <div id="kg-legend" class="kg-legend"></div>
+          <details class="kg-help">
+            <summary>How is edge <strong>confidence</strong> graded?</summary>
+            <p>Each edge is supported by one or more pieces of <em>evidence</em> — a relation
+              extracted from a single paper by a single model (Opus or Sonnet). At extraction,
+              every piece of evidence is rated <strong>high</strong>, <strong>medium</strong>, or
+              <strong>low</strong> according to how directly that paper supports the relation.</p>
+            <p>An edge's confidence is the <strong>highest level among its supporting evidence</strong>:
+              <em>high</em> if any evidence is high; otherwise <em>medium</em> if any is medium;
+              otherwise <em>low</em>. Across the graph: ~6,800 high, ~8,300 medium, 1 low.</p>
+            <p>Edges where the two models disagreed were settled by a separate <em>arbitration</em>
+              step. Use the <strong>Confidence</strong> filter above to keep only high (or high+medium)
+              edges; click any edge to read each paper's quoted evidence and its own rating.</p>
+          </details>
           <div id="kg-wrap">
             <canvas id="kg-canvas"></canvas>
             <div id="kg-tip" class="kg-tip hidden"></div>
