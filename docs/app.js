@@ -155,7 +155,7 @@ function renderStats() {
     cards.push([`${siteStats.min_year}–${siteStats.max_year}`, "Literature span (oldest–newest paper)"]);
   }
   if (siteStats.latest_paper_label) {
-    cards.push([siteStats.latest_paper_label, "Newest paper (month)"]);
+    cards.push([siteStats.latest_paper_label, "Most recent paper in the database"]);
   }
   $("#stats").innerHTML = cards
     .map((c) => `<div class="stat"><div class="num">${c[0]}</div><div class="lab">${c[1]}</div></div>`)
