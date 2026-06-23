@@ -34,15 +34,15 @@
 
   <div id="app" class="hidden">
     <nav class="viewnav">
-      <button class="vtab active" data-view="dashboard">📊 Dashboard</button>
+      <button class="vtab active" data-view="kg">🕸️ Knowledge graph</button>
       <button class="vtab" data-view="browse">🔍 Browse &amp; search</button>
-      <button class="vtab" data-view="kg">🕸️ Knowledge graph</button>
+      <button class="vtab" data-view="dashboard">📊 Dashboard</button>
       <button class="vtab" data-view="download">⬇️ Download data</button>
       <button class="vtab" data-view="mcp">🔌 MCP / agents</button>
     </nav>
 
     <!-- ===== Dashboard view ===== -->
-    <section id="view-dashboard">
+    <section id="view-dashboard" class="hidden">
       <section id="stats" class="stats"></section>
       <div class="charts">
         <div class="chartcard span2"><h3>Most-studied genes <span class="csub">top 15 by # papers · click a gene to open it</span></h3><div class="cwrap tall"><canvas id="chart-topgenes"></canvas></div></div>
@@ -81,7 +81,7 @@
     </section>
 
     <!-- ===== Knowledge graph view ===== -->
-    <section id="view-kg" class="hidden">
+    <section id="view-kg">
       <div class="panel">
         <h2>Species knowledge graph</h2>
         <div class="body">

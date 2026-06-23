@@ -84,6 +84,7 @@ async function boot() {
     buildFacets();
     bindControls();
     runQuery();
+    showView("kg");   // land on the Knowledge graph by default
   } catch (e) {
     $("#loader").innerHTML =
       '<p style="color:#c0533b">Failed to load database.<br>' + esc(e.message) + "</p>";
