@@ -753,8 +753,8 @@ function renderCharts() {
 //   PANTRY_ID   – a free getpantry.cloud id (no account/password, no backend to host)  ← recommended
 //   VISITOR_API – a Cloudflare Worker URL (see backend/cloudflare-worker.js)
 // Leave both empty for self-contained mode (only the current visitor's country).
-const PANTRY_ID = "d9eb8e96-d8d5-4fbd-8485-4b7e24d373e4";
-const VISITOR_API = "";
+const PANTRY_ID = "";   // retired (Pantry free tier auto-expires after ~30 days)
+const VISITOR_API = "https://saltnetmap.yunchuan-wang.workers.dev";   // Cloudflare Worker + KV (no expiry)
 const VM_NS = "salt-gene-db";  // abacus namespace (used only in self-contained mode)
 let vmAgg = {};                // {CC: count} for region tooltips in aggregate mode
 
