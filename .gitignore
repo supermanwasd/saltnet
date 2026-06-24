@@ -3,3 +3,10 @@ __pycache__/
 .DS_Store
 docs/.uniprot_done.json
 *.log
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
