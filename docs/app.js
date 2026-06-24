@@ -745,7 +745,8 @@ function renderCharts() {
   barChartH("chart-mech",
     rows("SELECT mechanism v, COUNT(*) n FROM gene_mechanism GROUP BY mechanism ORDER BY n DESC"));
   barChartH("chart-substrate",
-    rows("SELECT substrate v, COUNT(*) n FROM gene_substrate WHERE substrate<>'Not applicable' GROUP BY substrate ORDER BY n DESC LIMIT 12"));
+    rows("SELECT substrate v, COUNT(*) n FROM gene_substrate WHERE substrate<>'Not applicable' GROUP BY substrate ORDER BY n DESC LIMIT 12")
+      .map((d) => (d.v === "Water (aquaporin)" ? { ...d, v: "Water" } : d)));
 }
 
 // ---- visitor world map ----
