@@ -438,12 +438,9 @@ function sequenceLinks(r) {
   ];
   if (t.prot) links.push([`NCBI Protein ↗`, `https://www.ncbi.nlm.nih.gov/protein/${esc(t.prot)}`]);
   if (t.gene) links.push([`NCBI Gene ↗`, `https://www.ncbi.nlm.nih.gov/gene/${esc(t.gene)}`]);
-  const badge = t.r
-    ? '<span class="seq-tag rev">Swiss-Prot</span>'
-    : '<span class="seq-tag un">TrEMBL</span>';
   return `<div class="ext-links"><span class="ext-label">Sequence</span>` +
     links.map(([txt, u]) => `<a class="ext-btn" href="${u}" target="_blank" rel="noopener">${txt}</a>`).join("") +
-    ` ${badge}</div>`;
+    `</div>`;
 }
 
 // TCDB transporter-family annotation (shown for transporters only)
