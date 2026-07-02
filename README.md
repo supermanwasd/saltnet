@@ -1,4 +1,4 @@
-# 🌱 SaltNet — Plant Salinity-Response Gene Database
+# 🌱 SaltNet: Plant Salinity-Response Gene Database
 
 A curated, literature-mined catalogue of plant **salinity-response genes** across species —
 with alias clustering, PubMed support, evidence-strength grading, functional category,
