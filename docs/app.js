@@ -643,6 +643,7 @@ function showView(view) {
   $("#view-kg").classList.toggle("hidden", view !== "kg");
   $("#view-download").classList.toggle("hidden", view !== "download");
   $("#view-mcp").classList.toggle("hidden", view !== "mcp");
+  $("#view-build").classList.toggle("hidden", view !== "build");
   if (view === "kg" && typeof initKG === "function") initKG();
 }
 

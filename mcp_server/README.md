@@ -126,13 +126,13 @@ args:     ["/ABSOLUTE/PATH/TO/saltnet/mcp_server/saltnet_mcp.py"]
 
 Once connected, just ask your agent in natural language — it will pick the right tool:
 
-- *"Use SaltNet to find Na⁺ transporters involved in salt tolerance in wheat."*
+- *"Use SaltNet to find Na⁺ transporters involved in salinity response in wheat."*
   → `search_genes(species="Triticum aestivum", functional_category="Transporter", transport_substrate="Na+")`
 - *"What does SaltNet say about SOS1 in Arabidopsis — its evidence and which papers?"*
   → `get_gene("SOS1", "Arabidopsis thaliana")`
 - *"Show SOS1's regulatory network and the experiment behind each edge."*
   → `get_gene_network("SOS1", "Arabidopsis thaliana")`
-- *"List the strongest-evidence negative regulators of salt tolerance in rice."*
+- *"List the strongest-evidence negative regulators of salinity response in rice."*
   → `search_genes(species="Oryza sativa", gene_role="Negative")`
 
 ---

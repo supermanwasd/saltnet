@@ -196,6 +196,15 @@ dl.paper-fields dd { padding: 6px 0; margin: 0; border-top: 1px solid var(--line
 .mcp-ex { font-size: 13.5px; color: var(--ink); margin: 4px 0 0; padding-left: 20px; line-height: 1.7; }
 pre.code { background: #0c2233; color: #d6e6f2; border-radius: 9px; padding: 13px 15px; overflow-x: auto;
   font-size: 12.5px; line-height: 1.55; font-family: "SF Mono", ui-monospace, Menlo, Consolas, monospace; margin: 0 0 6px; }
+
+/* ---------- Build your own ---------- */
+.tier-box { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin: 4px 0 18px; }
+.tier { border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 13px; color: var(--muted); line-height: 1.5; background: #fbfdff; }
+.tier-tag { display: inline-block; font-size: 11px; font-weight: 700; color: #fff; padding: 2px 9px; border-radius: 12px; margin-bottom: 6px; }
+.tier-tag.a { background: var(--accent); } .tier-tag.b { background: #2e8b57; }
+.tier strong { color: var(--ink); }
+.mcp-tools td:nth-child(2) { white-space: nowrap; color: var(--muted); font-size: 12px; }
+.build-links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 18px; }
 .dl-terms { margin-top: 18px; padding: 12px 14px; font-size: 12.5px; line-height: 1.5; color: var(--muted);
   background: var(--accent-soft); border: 1px solid var(--line); border-radius: 8px; }
 

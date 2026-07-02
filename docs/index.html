@@ -37,6 +37,7 @@
       <button class="vtab" data-view="dashboard">📊 Dashboard</button>
       <button class="vtab" data-view="download">⬇️ Download data</button>
       <button class="vtab" data-view="mcp">🔌 MCP / agents</button>
+      <button class="vtab" data-view="build">🛠️ Build your own</button>
     </nav>
 
     <!-- ===== Dashboard view ===== -->
@@ -200,12 +201,82 @@ pip install -r requirements.txt</pre>
 
           <h3 class="mcp-h">3 · Ask</h3>
           <ul class="mcp-ex">
-            <li>“Use SaltNet to find Na⁺ transporters involved in salt tolerance in wheat.”</li>
+            <li>“Use SaltNet to find Na⁺ transporters involved in salinity response in wheat.”</li>
             <li>“What does SaltNet say about SOS1 in Arabidopsis — evidence and which papers?”</li>
             <li>“Show SOS1's regulatory network and the experiment behind each edge.”</li>
           </ul>
 
           <a class="btn primary dl-repo" href="https://github.com/supermanwasd/saltnet/blob/main/mcp_server/README.md" target="_blank" rel="noopener">Full setup &amp; usage tutorial on GitHub ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Build your own view ===== -->
+    <section id="view-build" class="hidden">
+      <div class="panel">
+        <h2>Build your own resource</h2>
+        <div class="body">
+          <p class="dl-intro">SaltNet was built from the literature by a <strong>multi-agent LLM
+            pipeline</strong>. That pipeline is packaged as a second MCP toolbox — the
+            <strong>build</strong> server — so you can construct your own evidence-traceable
+            knowledge graph + database for <em>any</em> topic, with your own keywords and your own
+            choice of models. It turns "build a SaltNet-style resource" into a conversation:
+            <em>search → filter → extract → arbitrate → audit → check → build</em>.</p>
+
+          <div class="tier-box">
+            <div class="tier"><span class="tier-tag a">Tier A — extraction</span>
+              literature → structured data. <strong>LLM-driven, expensive, resumable per PMID</strong>
+              (only new papers are processed).</div>
+            <div class="tier"><span class="tier-tag b">Tier B — build</span>
+              data → database / graph / tables / figures. <strong>Deterministic and cheap</strong>;
+              re-runs from the master data.</div>
+          </div>
+
+          <h3 class="mcp-h">The 7 tools</h3>
+          <table class="mcp-tools">
+            <thead><tr><th>Tool</th><th>Tier</th><th>What it does</th></tr></thead>
+            <tbody>
+              <tr><td><code>search_abstracts</code></td><td>search</td><td>PubMed search by your keywords → download abstracts → parse.</td></tr>
+              <tr><td><code>filter_corpus</code></td><td>cluster</td><td>SPECTER2 embed + HDBSCAN cluster + KeyBERT + on-topic filter.</td></tr>
+              <tr><td><code>extract</code></td><td>A · LLM</td><td>Dual-model extraction of genes, annotations, and KG triples. <code>confirm=False</code> returns a cost estimate first.</td></tr>
+              <tr><td><code>arbitrate</code></td><td>A · LLM</td><td>Adjudicate model disagreements and arbitrate single-model KG edges on full text.</td></tr>
+              <tr><td><code>audit</code></td><td>A · LLM</td><td>Per-field Opus audits (transport substrate, functional category, species, role).</td></tr>
+              <tr><td><code>check</code></td><td>B</td><td>Recompute canonical numbers and scan the manuscript for stale numbers.</td></tr>
+              <tr><td><code>build_kg_db</code></td><td>B</td><td>Rebuild the database, KG JSON, tables, and figures from the master data.</td></tr>
+            </tbody>
+          </table>
+          <p class="mcp-note">Heavy LLM stages run as <strong>background jobs</strong> (return a
+            <code>job_id</code>; poll with <code>get_job</code> / <code>list_jobs</code> /
+            <code>stop_job</code>) so a call never blocks for hours; light stages run synchronously.</p>
+
+          <h3 class="mcp-h">A typical build (your keywords, your models)</h3>
+          <pre class="code">search_abstracts(query='("cold stress"[TIAB]) AND plants[MeSH]', mindate='2000')
+get_job(...)                                   # poll until completed
+filter_corpus()                                # embed + cluster + on-topic filter
+extract(model_a='sonnet', model_b='opus', confirm=False)   # review cost estimate…
+extract(model_a='sonnet', model_b='opus', confirm=True)    # …then run
+arbitrate(confirm=True)  →  audit()            # adjudicate + per-field audits
+build_kg_db('build')     →  check()            # deterministic build + number check</pre>
+
+          <h3 class="mcp-h">Register the build server (MCP, stdio)</h3>
+          <pre class="code">{
+  "mcpServers": {
+    "saltnet-pipeline": {
+      "command": "/home/&lt;you&gt;/miniconda3/envs/salt_nlp/bin/python",
+      "args": [".../pipeline/mcp_pipeline/pipeline_mcp.py"]
+    }
+  }
+}</pre>
+          <p class="mcp-note"><strong>Requirements:</strong> Python 3.10+ with <code>mcp</code>
+            (the <code>salt_nlp</code> conda env), NCBI <strong>EDirect</strong> on PATH, and an
+            authenticated <strong>Claude Code CLI</strong> with quota for the LLM (Tier A) stages.
+            The server wraps the pipeline <code>Makefile</code>.</p>
+
+          <div class="build-links">
+            <a class="btn primary" href="https://github.com/supermanwasd/saltnet/tree/main/pipeline" target="_blank" rel="noopener">Pipeline &amp; MCP on GitHub ↗</a>
+            <a class="btn" href="https://github.com/supermanwasd/saltnet/blob/main/pipeline/README.md" target="_blank" rel="noopener">MCP server README ↗</a>
+            <a class="btn" href="https://github.com/supermanwasd/saltnet/blob/main/pipeline/PIPELINE_STAGES.md" target="_blank" rel="noopener">Stage map ↗</a>
+          </div>
         </div>
       </div>
     </section>
