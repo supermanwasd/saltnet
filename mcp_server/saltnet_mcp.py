@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """SaltNet MCP server (stdio).
 
-Exposes three tools so an AI agent can query the SaltNet plant salt-tolerance gene
+Exposes three tools so an AI agent can query the SaltNet plant salinity-response gene
 database: search_genes, get_gene, get_gene_network. Backed by the data files bundled
 in ../docs (no network or external service required).
 
@@ -20,7 +20,7 @@ mcp = FastMCP("saltnet")
 @mcp.tool()
 def search_genes(query: str = "", species: str = "", functional_category: str = "",
                  transport_substrate: str = "", gene_role: str = "", limit: int = 25) -> dict:
-    """Find plant salt-tolerance genes in SaltNet.
+    """Find plant salinity-response genes in SaltNet.
 
     Args:
         query: free text matched against gene name, aliases, or species (e.g. "SOS1", "HKT").

@@ -1,6 +1,6 @@
-# 🌱 SaltNet — Plant Salt-Tolerance Gene Database
+# 🌱 SaltNet — Plant Salinity-Response Gene Database
 
-A curated, literature-mined catalogue of plant **salt-tolerance genes** across species —
+A curated, literature-mined catalogue of plant **salinity-response genes** across species —
 with alias clustering, PubMed support, evidence-strength grading, functional category,
 transport substrate, subcellular localization, mechanistic role, per-paper evidence, a
 per-species knowledge graph, and TCDB-checked transporter annotations.

@@ -35,7 +35,7 @@ def _slug(s):
 
 def search_genes(query="", species="", functional_category="", transport_substrate="",
                  gene_role="", limit=25):
-    """Search salt-tolerance genes by free text and/or facets; return matching rows."""
+    """Search salinity-response genes by free text and/or facets; return matching rows."""
     clauses, params = [], {}
     if (query or "").strip():
         params["q"] = f"%{query.strip()}%"

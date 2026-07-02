@@ -1,4 +1,4 @@
-/* Salt-Tolerance Gene Database — in-browser SQLite (sql.js) front end.
+/* Salinity-Response Gene Database — in-browser SQLite (sql.js) front end.
    Loads docs/salt_genes.db, drives faceted search, a sortable/paginated
    table, and a detail modal. No server required. */
 

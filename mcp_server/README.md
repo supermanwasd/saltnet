@@ -2,7 +2,7 @@
 
 A local [Model Context Protocol](https://modelcontextprotocol.io) (MCP) server that lets
 an AI agent (Claude Desktop, Claude Code, Cline, Continue, …) query the **SaltNet** plant
-salt-tolerance gene database directly. It runs on your machine over stdio and reads the
+salinity-response gene database directly. It runs on your machine over stdio and reads the
 data files bundled in `../docs` — **no network, backend, API key, or external service.**
 
 ## The three tools
